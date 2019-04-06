@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Center</title>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./js/center.js"></script>
+    <link href="./css/basic.css" rel="stylesheet">
+    <link href="./css/center.css" rel="stylesheet" />
+</head>
+<body>
+    <!--头部-->
+    <div class="search_header">
+        <svg width="1200px" height="860px"
+             style="background-color: rgba(240, 243, 255, 1); position: absolute; top: 100px;"></svg>
+        <svg width="1200px" height="60px" style="background-color: #2d2d2d"></svg>
+        <svg width="1200px" height="40px"
+             style="background-color: #808080; position: absolute; top: 60px;"></svg>
+        <img src="images/logo-white.png" width="240" height="60"
+             style="position: absolute; top: 0px; left: 0px;" />
+        <p style="position: absolute; left: 250px; top: 20px; color: white; font-weight: bold; font-size: 25px">个人中心</p>
+        <div class="search" style="position: absolute; left: 580px; top: 65px">
+                <p>
+                    <input type="search" id="search_key" style="width: 450px;border-radius:10px;border:none;outline: none" />
+                    <input type="submit" id="search" value="搜   索" style="font-size:15px;height:25px;position: relative; left:30px; width: 100px;border:none;border-radius:10px;outline: none;" />
+                </p>
+        </div>
+    </div>
+    <!--用户个人中心头部-->
+    <div class="userblock">
+        <svg width="958px" height="150px" style="background-color: rgba(204, 204, 204, 1); position: absolute; top: 140px; left: 120px;border-radius: 0 100px 0 0;"></svg>
+        <p id="header_username" style="position:absolute;left:280px;top:160px;color:black;font-weight:bold;font-size:20px;">用&nbsp;户&nbsp;名&nbsp; :</p>
+        <p id="header_point" style="position:absolute;left:280px;top:195px;color:black;font-weight:bold;font-size:20px;">积分 :</p>
+        <p id="header_motto" style="position:absolute;left:280px;top:230px;color:black;font-weight:bold;font-size:20px;">个性签名 :</p>
+        <img id="avatar_1" src="" width="80" height="80" style="position:absolute;top:160px;left:160px;border-radius:50px;" />
+        <p style="position:absolute;left:880px;top:250px;color:black;font-weight:bold;font-size:20px;"><a id="invitation_num" href="invitation.html">Invitation(s):0</a></p>
+        <p style="position:absolute;left:880px;top:220px;color:black;font-weight:bold;font-size:20px;"><a href="search.html">返回主页</a></p>
+    </div>
+    <!---便签页面-->
+    <div class="panel">
+        <div class="top">
+            <ul class="tabs">
+                <li class="tab tabCurrent"><a href="javascript:void(0);">个人资料</a><span class="line"></span></li>
+                <li class="tab"><a href="javascript:void(0);">上传</a><span class="line"></span></li>
+                <li class="tab" id="uploadrecord"><a href="javascript:void(0);">上传管理</a><span class="line"></span></li>
+                <li class="tab" id="pointrecord"><a href="javascript:void(0);">积分记录</a><span class="line"></span></li>
+                <li class="tab" id="myteams"><a href="javascript:void(0);">我的团队</a><span class="line"></span></li>
+                <li class="tab" id="follow"><a href="javascript:void(0);">关注的人</a><span class="line"></span></li>
+                <li class="tab"><a href="javascript:void(0);">修改密码</a><span class="line"></span></li>
+                <li class="tab" id="delete_comment"><a href="./delete_comment.html">我的留言</a><span class="line"></span></li>
+                <li class="tab" id="checkout"><a href="index.html">退出登录</a></li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <!--个人资料-->
+            <div name="content" class="goods goodsShow">
+                <p class="smallheader">
+                    个人资料
+                </p>
+                <div id="UserDatas">
+                   <div class="texts">
+                       <p class="text">用&nbsp;户&nbsp;名&nbsp;:</p>
+                       <p class="text">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;:</p>
+                       <p class="text">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;:</p>
+                       <p class="text">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱&nbsp;:</p>
+                       <p class="text">手&nbsp;机&nbsp;号&nbsp;:</p>
+                       <p class="text">个性签名:</p>
+                   </div>
+                   <div class="datas" id="datas">
+                       <p class="data" id="username"></p>
+                       <p class="data" id="sex"></p>
+                       <p class="data" id="sno"></p>
+                       <p class="data" id="email"></p>
+                       <p class="data" id="tel"></p>
+                       <p class="data" id="motto"></p>
+                       <img id="avatar_2" src="" width="150"height="150" style="position:absolute;top:30px;left:400px;border-radius:150px;"/>
+                   </div> 
+                </div>
+                <div class="setdatas" id="setdatas" style="display:none;">
+                    <form method="post">
+                        <p><input type="text" id="_username" name="_username" /><span id="username_valid" style="color: white"></span></p>
+                        <p>
+                            <select id="_sex" name="_sex">
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </p>
+                        <p><input id="_sno" type="text" name="_sno" /></p>
+                        <p><input id="_email" type="email" name="_email" /></p>
+                        <p><input id="_tel" type="number" name="_tel" /></p>
+                        <p><textarea id="_motto" name="_motto" style="position:relative;top:20px"></textarea></p>
+                    </form>
+                </div>
+                <input type="button" value="修改" class="blockbottom" id="modify" style="position:absolute;left:100px;top:545px" />
+                <input type="button" value="取消" class="blockbottom" id="cancel" style="position:absolute;left:100px;top:545px;display: none;" />
+                <input type="button" value="提交" class="blockbottom" id="submit" style="position:absolute;left:400px;top:545px;display:none;" />
+            </div>
+            <!--上传-->
+            <div name="content" class="goods">
+                <p class="smallheader">上传</p>
+                <div class="text">
+                    <p class="text">上传标题</p>
+                    <p class="text">上传描述</p>
+                </div>
+                <div class="setdatas">
+                    <form id="file_form" action="http://localhost:3000/upload" method="post" enctype="multipart/form-data">
+                        <p><input id="set-document-name" type="text" name="set-document-name" style="width:400px;" /></p>
+                        <select id="selector" style="position: absolute;left: 470px;top: 18px;width: 105px; z-index: 999">
+                          <option value ="courseware">课件</option>
+                          <option value ="book">书籍</option>
+                          <option value="software">软件</option>
+                          <option value="game">游戏</option>
+                          <option value="music">音乐</option>
+                          <option value="video">视频</option>
+                          <option value="picture">图片</option>
+                          <option value="other">其他</option>
+                        </select>
+                        <input id="point" type="number" name="point" style="position: absolute;left: 470px;top: 78px;width: 100px;" placeholder="设置积分" min="0" max="50">
+                        <p><textarea id="set-description" name="set-description" style="position:relative;top:20px;height:150px;width:400px;"></textarea></p>
+                        <input id="file" type="file" name="files" multiple="multiple" style="color: white" />
+                        <input id="submit_file_btn" type="button" value="上传" class="blockbottom" style="outline: none" />
+                        <img id="info" src="./images/success.png" style="display: none; width: 80px; height: 80px;position: absolute;left: 200px;top: 300px;">
+                    </form>
+                </div>
+                <div id="out_progress" style="display: none; background-color: white;z-index: 999;position: absolute;left: 115px;top: 380px;height: 30px;width: 550px;border-radius: 20px;" >
+                    <div id="inner_progress" style="background-color:#7fffaa; width: 0px;height: 30px;border-radius: 20px;font-size: 15px;line-height: 30px;">0%</div>
+                </div>  
+            </div>
+            <!--上传管理-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    上传管理
+                </p>
+                <div width="100%" height="80%" style=" border:none;">
+                    <div id="DadminTbody">
+                    </div>
+                </div>
+                <div id="Dbarcon" class="Dbarcon" width="100%">
+                    <div id="DDbarcon1" class="DDbarcon1"></div>
+                    <div id="DDbarcon2" class="DDbarcon2">
+                        <p class="PButton"><a href="###" id="DfirstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="DprePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="DnextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="DlastPage">尾页</a></p>
+                        <p>
+                            <select id="DjumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="DjumpPage" onclick="DjumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--积分记录-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    积分记录
+                </p>
+                <table width="618" cellpadding="0" cellspacing="0" class="table2" align="center">
+                    <thead>
+                        <tr align="center" class="trow" style="background-color:white;border:none;">
+                            <th width="98" class="td2">序号</th>
+                            <th width="200" class="td2">操作时间</th>
+                            <th width="100" class="td2">积分变化</th>
+                            <th width="220" class="td2">操作名称</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTbody"></tbody>
+
+                </table>
+                <div id="barcon" class="barcon" width="618">
+                    <div id="barcon1" class="barcon1"></div>
+                    <div id="barcon2" class="barcon2">
+                        <p class="PButton"><a href="###" id="firstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="prePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="nextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="lastPage">尾页</a></p>
+                        <p>
+                            <select id="jumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="jumpPage" onclick="jumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--我的团队-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    我的团队
+                </p>
+                <div width="100%" height="80%" style=" border:none;">
+                    <div id="Teams">
+                    </div>
+                </div>
+                <div id="Dbarcon" class="Dbarcon" width="100%">
+                    <div id="DDbarcon3" class="DDbarcon1" style="top: 55px"></div>
+                    <div id="DDbarcon4" class="DDbarcon2" style="top: 60px">
+                        <p class="PButton"><a href="###" id="MfirstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="MprePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="MnextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="MlastPage">尾页</a></p>
+                        <p>
+                            <select id="MjumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="MjumpPage" onclick="MjumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--团队详情-->
+            <!-- <div name="content" class="goods">
+                <p class="smallheader">
+                    团队详情
+                </p>
+                <div width="100%" height="80%" style=" border:none;">
+                    <div id="TeamInfo">
+                    </div>
+                </div>
+                <div id="Dbarcon" class="Dbarcon" width="100%">
+                    <div id="DDbarcon3" class="DDbarcon1" style="top: 55px"></div>
+                    <div id="DDbarcon4" class="DDbarcon2" style="top: 60px">
+                        <p class="PButton"><a href="###" id="MfirstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="MprePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="MnextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="MlastPage">尾页</a></p>
+                        <p>
+                            <select id="MjumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="MjumpPage" onclick="MjumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div> -->
+            <!--关注的人-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    关注的人
+                </p>
+                <div width="800" style="position:relative;border-radius:20px;left:20px; border:none;">
+                    <div id="UadminTbody">
+                    </div>
+                </div>
+                <div id="Ubarcon" class="Ubarcon" width="618">
+                    <div id="Ubarcon1" class="Ubarcon1"></div>
+                    <div id="Ubarcon2" class="Ubarcon2">
+                        <p class="PButton"><a href="###" id="UfirstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="UprePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="UnextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="UlastPage">尾页</a></p>
+                        <p>
+                            <select id="UjumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="UjumpPage" onclick="UjumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--修改密码-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    修改密码
+                </p>
+                <div style="position:relative;left:100px;top:50px">
+                    <div class="text" style="position:relative;top:70px;">
+                        <p class="text">原&nbsp;密&nbsp;码&nbsp;:</p>
+                        <p class="text">新&nbsp;密&nbsp;码&nbsp;:</p>
+                        <p class="text">确认密码</p>
+                    </div>
+                    <form method="post" action="">
+                        <div class="setdatas">
+                            <p><input name="old-password" id="old-password" type="password" /><span id="password_info" style="color: white;display: none"></span></p>
+                            <p><input type="password" name="new-password" id="new-password" /></p>
+                            <p><input type="password" name="once-more" id="once-more" /><span id="password-check" style="color: white; display: none;"></span></p>
+                        </div>
+                    </form>
+                    <input id="change_password_Btn" type="button"class="blockbottom" value="确认修改" style="position:relative;top:140px;left:400px;outline: none" />
+                </div>
+            </div>
+            <!--退出登录-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    退出登录
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script> 
+        var tabs = document.getElementsByTagName("li");
+        var goods = document.getElementsByName("content");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].index = i;
+            tabs[i].onmousedown = function () {
+                for (var j = 0; j < tabs.length; j++) {
+                    var cn = tabs[j].className;
+                    if (cn.indexOf("tabCurrent")) {
+                        tabs[j].className = cn.replace("tabCurrent", "");
+                    }
+                    $('#adminTbody').html(``);
+                    $('#DadminTbody').html(``);
+                    $('#UadminTbody').html(``);
+                }
+                var className = this.className;
+                this.className = className.concat(" tabCurrent");
+                for (var k = 0; k < goods.length; k++) {
+                    goods[k].style.display = "none";
+                }
+                goods[this.index].style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

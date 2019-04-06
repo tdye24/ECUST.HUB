@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Amounts</title>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/echarts.min.js"></script>
+</head>
+<body>
+<div id="amounts-pie" style="width: 600px; height: 600px;border: 1px;position: absolute;right: 10px"></div>
+<div id="amounts-bar" style="width: 600px; height: 600px;borddr: 1px;position: absolute;left: 10px;"></div>
+<script type="text/javascript">
+    var myBarChart = echarts.init(document.getElementById('amounts-bar'));
+    var baroption = {
+        title : {
+            text : 'Amounts Of Resource',
+            subtext : '--from ECloud DB.',
+            x : 'center'
+        },
+        backGroundColor: '#FFFFCC'
+    };
+    myBarChart.setOption(baroption);
+    myBarChart.showLoading(); 
+    var myChart = echarts.init(document.getElementById('amounts-pie'));
+    myChart.setOption({
+        title : {
+            text : 'Proportions Of Resource',
+            subtext : '--from ECloud DB.',
+            x : 'center'
+        },
+        tooltip : {
+            trigger : 'item',
+            formatter : "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend : {
+            orient : 'vertical',
+            x : 'left', 
+            data : [] 
+        },
+        toolbox : {
+            show : true,
+            feature : {
+                mark : {
+                    show : true
+                },
+                dataView : {
+                    show : true,
+                    readOnly : false
+                },
+                magicType : {
+                    show : true,
+                    type : [ 'pie', 'funnel' ],
+                    option : {
+                        funnel : {
+                            x : '25%',
+                            width : '50%',
+                            funnelAlign : 'left',
+                            max : 1548
+                        }
+                    }
+                },
+                restore : {
+                    show : true
+                },
+                saveAsImage : {
+                    show : true
+                }
+            }
+        },
+        series : [ {
+            name : '种类数量',
+            type : 'pie',
+            radius : '55%',
+            center : [ '50%', '60%' ],
+            data : []
+        } ]
+    });
+    myChart.showLoading();
+    var names = []; 
+    var values = []; 
+    
+    $.ajax({
+        url : 'http://localhost:3000/admin/amounts',
+        type : 'get',
+        dataType : "json",
+        success : function(result) {
+            $.each(result, function(k, v) {       
+                names.push(v[0]); 
+                values.push({
+                    name : v[0],
+                    value : v[1]
+                });
+            });
+            myChart.hideLoading(); 
+            myChart.setOption({               
+                legend : {
+                    data : names
+                },
+                series : [ {
+                    data : values
+                } ]
+            });
+            myBarChart.hideLoading();
+            myBarChart.setOption({
+                xAxis: {
+                    type: 'category',
+                    data: names
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: values,
+                    type: 'bar'
+                }]
+            }); 
+        },
+        error : function(errorMsg) {
+            alert("Request fail!");
+            myChart.hideLoading();
+        }
+    });
+    setInterval(function() {
+        var names = []; 
+        var values = [];
+        $.ajax({
+            url : 'http://localhost:3000/admin/amounts',
+            type : 'get',
+            dataType : "json",
+            success : function(result) {
+                $.each(result, function(k, v) {       
+                    names.push(v[0]); 
+                    values.push({
+                        name : v[0],
+                        value : v[1]
+                    });
+                });
+                myChart.setOption({               
+                    legend : {
+                        data : names
+                    },
+                    series : [ {
+                        data : values
+                    } ]
+                });
+                myBarChart.setOption({
+                    xAxis: {
+                        type: 'category',
+                        data: names
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: values,
+                        type: 'bar'
+                    }]
+                }); 
+            },
+            error : function(errorMsg) {
+                alert("Request fail!");
+            }
+        });
+    }, 20000);
+</script>
+</body>
+</html>

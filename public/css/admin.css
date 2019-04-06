@@ -1,0 +1,43 @@
+#code {
+	font-family:Arial;
+	font-style:italic;
+	font-weight:bold;
+	border:0;
+	letter-spacing:2px;
+	color:blue;
+}
+p {
+	font-family: KaiTi;
+	font-size: 16px;
+}
+input { 
+	height: 16px; 
+	padding: 4px 0px; 
+	font-size: 16px; 
+	font-family: KaiTi;
+	border-color: Silver;
+	border-radius: 5px;
+	outline: none;
+}
+
+button {
+	outline: none;
+	width: 60px;
+	height: 28px;
+	background-color: #F5FFFA;
+	color: black;
+	font-family: KaiTi;
+	font-size: 20px;
+}
+
+span {
+	color: blue;
+	font-size: 22px;
+}
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}

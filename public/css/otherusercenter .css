@@ -1,0 +1,228 @@
+body {
+    margin: 0px;
+    background-image: none;
+    position: relative;
+    left: -0px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.banner {
+    position: absolute;
+    width: 1200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.logo {
+    position: absolute;
+    left: 420px;
+    top: 260px;
+    width: 357px;
+    height: 160px;
+    overflow: hidden;
+}
+
+.search_header {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blackhead {
+    background-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size:20px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    line-height: 45px;
+}
+
+    a:hover {
+        color: black;
+    }
+
+ul {
+    list-style: none;
+}
+
+.panel {
+    position: absolute;
+    top: 290px;
+    left: 120px;
+    width: 958px;
+    height: 670px;
+    background-color: #808080;
+    border-radius: 0 0 0 100px
+}
+
+.top {
+    height: 0px;
+}
+
+.tabs {
+    height: 50px;
+    border-bottom: 0 none;
+    float: right;
+}
+
+.tab {
+    height: 50px;
+    width: 180px;
+    position: relative;
+    background-color: #bcbcbc;
+    border-radius: 25px;
+    margin: 20px;
+}
+
+li.tabCurrent {
+    background-color: #fff;
+    height: 50px;
+}
+
+    li.tabCurrent a {
+    }
+
+.tab a {
+    display: block;
+    padding: 0 30px;
+    height: 30px;
+}
+
+.tab .line {
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+.back {
+    width: 738px;
+    height: 670px;
+    font-size: 25px;
+    position:relative;
+    top:-20px;
+    background-color: #e0e0e0;
+    border-radius: 0 0 0 100px;
+    text-indent: 30px;
+}
+.goods {
+    width: 718px;
+    height: 650px;
+    display: none;
+    font-size: 25px;
+    line-height: 60px;
+    background-color: #312f2f;
+    margin: 10px;
+    border-radius: 0 0 0 100px;
+    text-indent: 30px;
+}
+
+
+.smallheader {
+    color: white;
+    font-weight: bold;
+    font-size:25px;
+}
+
+div.goodsShow {
+    display: block;
+}
+.text{
+    color:white;
+    font-size:20px;
+}
+.data {
+    color: white;
+    font-size: 20px;
+    position:relative;
+
+}
+.datas{
+    position:absolute;
+    top:70px;
+    left:100px;
+}
+.setdatas {
+    position: absolute;
+    top: 70px;
+    left: 120px;
+}
+.set {
+    position: relative;
+    left: 100px;
+    top: 50px;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px
+}
+.blockbottom {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: #bcbcbc;
+}
+
+
+
+.PButton {
+    font-weight: normal;
+    color: black;
+    border-radius: 35%;
+    background-color: #bcbcbc;
+    margin: 0.5%;
+}
+
+    .PButton:hover {
+        background-color: white;
+    }
+
+.Dbarcon {
+    width: 65%;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    left: 5%;
+}
+
+.DDbarcon1 {
+    position: relative;
+    left: 0%;
+    font-size: 15px;
+    float: left;
+    color: white;
+    top: 50px;
+}
+
+.DDbarcon2 {
+    float: right;
+    position: relative;
+    left: 10%;
+    width: 100%;
+    top: 30px;
+}
+
+    .DDbarcon2 p {
+        display: inline;
+    }
+
+    .DDbarcon2 a {
+        position: relative;
+        left: -2.5%;
+        font-size: 17px;
+        display: inline-block;
+        color: black;
+    }

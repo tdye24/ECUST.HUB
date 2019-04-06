@@ -1,0 +1,323 @@
+﻿body
+{
+}
+a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    line-height: 45px;
+}
+
+    a:hover {
+        color: black;
+    }
+
+ul {
+    list-style: none;
+}
+
+.panel {
+    position: absolute;
+    top: 350px;
+    left: 20%;
+    width: 60%;
+    height: 200px;
+    background-color: #808080;
+    border-radius:50px;
+}
+
+.top {
+    height: 0px;
+}
+
+.tabs {
+    height: 50px;
+    border-bottom: 0 none;
+    position:relative;
+    left:-40px;
+}
+
+.tab {
+    height: 50px;
+    width: 180px;
+    position: relative;
+    background-color: #bcbcbc;
+    border-radius: 25px;
+    margin: 20px;
+}
+
+li.tabCurrent {
+    background-color: #fff;
+    height: 50px;
+}
+
+    li.tabCurrent a {
+    }
+
+.tab a {
+    display: block;
+    padding: 0 30px;
+    height: 30px;
+}
+
+.tab .line {
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.back {
+    width: 738px;
+    height: 670px;
+    font-size: 25px;
+    position: relative;
+    top: -20px;
+    background-color: #808080;
+    border-radius: 0 0 0 100px;
+    text-indent: 30px;
+}
+
+.goods {
+    width: 500px;
+    height: 180px;
+    display: none;
+    left: 27.5%;
+    top: -20px;
+    position: relative;
+    font-size: 25px;
+    line-height: 60px;
+    background-color: rgba(240, 243, 255, 1);
+    margin: 10px;
+    text-indent: 30px;
+    border-radius: 50px;
+}
+
+
+.smallheader {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+div.goodsShow {
+    display: block;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+}
+
+.data {
+    color: white;
+    font-size: 20px;
+    position: relative;
+}
+
+.datas {
+    position: absolute;
+    top: 70px;
+    left: 100px;
+}
+
+.setdatas {
+    position: absolute;
+    top: 70px;
+    left: 120px;
+}
+
+.set {
+    position: relative;
+    left: 100px;
+    top: 50px;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px
+}
+
+.blockbottom {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: #bcbcbc;
+}
+.username{
+    font-size:15px;
+    position:relative;
+    top:-75px;
+    left:50px;
+    width:100px;
+}
+.userimage {
+    position: relative;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.usermotto {
+    font-size: 10px;
+    position: relative;
+    top: -107px;
+    left: 50px;
+    width: 100px;
+}
+
+.user1 {
+    width: 250px;
+    height: 80px;
+    top:-10px;
+    position: relative;
+}
+.user2 {
+    width: 250px;
+    height: 80px;
+    position:relative;
+    top:-100px;
+}
+.user3 {
+    width: 250px;
+    height: 80px;
+    position: relative;
+    top: -90px;
+    left: 250px;
+}
+.user4 {
+    width: 250px;
+    height: 80px;
+    position: relative;
+    top: -180px;
+    left: 250px;
+}
+.source{
+    position:relative;
+    height:90px;
+}
+.sourcename{
+    position:relative;
+    top:-75px;
+    left:65px;
+    width:400px;
+    text-align:left;
+
+}
+.sourcelogo {
+    position: relative;
+    top: 20px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.sourcename{
+    position:relative;
+    font-size:15px;
+}
+.description {
+    font-size: 14px;
+    position: relative;
+    left: 65px;
+    width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    top: -115px;
+}
+
+.ban {
+    opacity: .4;
+}
+
+.PButton {
+    font-weight: normal;
+    color: black;
+    border-radius: 50%;
+    background-color: #bcbcbc;
+    border:none;
+}
+
+    .PButton:hover {
+        background-color: white;
+    }
+
+.Dbarcon {
+    width: 65%;
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    left: 5%;
+}
+
+.DDbarcon1 {
+    position: absolute;
+    left: -250px;
+    font-size: 15px;
+    float: left;
+    color: black;
+    top: 0px;
+}
+
+.DDbarcon2 {
+    float: right;
+    position: absolute;
+    left: -100px;
+    width: 600px;
+    top:0px;
+}
+
+    .DDbarcon2 p {
+        display: inline;
+    }
+
+    .DDbarcon2 a {
+        position: relative;
+        font-size: 17px;
+        display: inline-block;
+        color: black;
+        left:-15px;
+        top:-5px;
+    }
+    .sousuo{
+        display:inline;
+        position:relative;
+        top:-40px;
+        left:120px;
+    }
+.Ubarcon {
+    width: 65%;
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    left: 5%;
+}
+
+.Ubarcon1 {
+    position: absolute;
+    left: -250px;
+    font-size: 15px;
+    float: left;
+    color: black;
+    top: 0px;
+}
+
+.Ubarcon2 {
+    float: right;
+    position: absolute;
+    left:-100px;
+    width: 600px;
+    top: 0px;
+}
+
+    .Ubarcon2 p {
+        display: inline;
+    }
+
+    .Ubarcon2 a {
+        position: relative;
+        font-size: 17px;
+        display: inline-block;
+        color: black;
+        left: -15px;
+        top: -5px;
+    }

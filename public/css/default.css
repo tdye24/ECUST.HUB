@@ -1,0 +1,39 @@
+﻿body {
+  margin:0px;
+  background-image:none;
+  position:relative;
+  left:-0px;
+  width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+}
+.banner {
+    position: absolute;
+    width: 1200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.logo {
+    position: absolute;
+    left: 420px;
+    top: 260px;
+    width: 357px;
+    height: 160px;
+    overflow: hidden;
+}
+.search_header {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+.blackhead {
+    background-color: #333333;
+}
+.text {
+    position: absolute;
+    color: black;
+}

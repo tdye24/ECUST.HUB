@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>忘记密码</title>
+    <link href="css/default.css" rel="stylesheet" />
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/getback.css">
+    <script type="text/javascript" src="./js/getback.js"></script>
+</head>
+<body>
+    <div class="search_header">
+        <svg width="1200px" height="475px" style="background-color:rgba(240, 243, 255, 1);position:absolute;top:150px;"></svg>
+        <svg width="1200px" height="100px" style="background-color:#2d2d2d"></svg>
+        <svg width="1200px" height="50px"  style="background-color:#808080;position:absolute;top:100px;"></svg>
+        <img src="../images/logo-white.png" width="240" height="100" style="position:absolute;top:0px;left:0px;" />
+        <p style="position:absolute;left:250px;top:25px;color:white;font-weight:bold;font-size:30px">密码找回</p>
+    </div>
+    <div style="position:absolute;top:200px;left:450px;width:100%;height:70%;">
+        <div class="action"style="display:inline;">
+            <p class="naction" id="action1" style="left:-150px;font-weight:bold;">①验证邮箱</p>
+            <p class="naction" id="action2"style="left:100px;top:-65px;">②重置密码</p>
+            <p class="naction" id="action3"style="left:350px;top:-130px;">③重置成功</p>
+            <hr style="height:5px;position:relative;top:-180px;width:550px;left:-450px;border:none;background-color: #808080;z-index:3;" />
+        </div>
+        <form id="usernamein"style="top:-80px;position:relative;" method ="post" action="signup">
+            <p style="font-size: 20px;">
+                用户名：
+                <input style="width: 250px;height: 25px;" type="" id="username" /><span id="username_valid"></span>
+            </p>
+        </form>
+        <div id="sendusername"style="position:relative;display:none;top:-150px;">
+            <img src="images/success.png"style="height:50px;width:50px;position:relative;top:75px;left:-80px;" />
+            <p>验证邮件已发送到您的邮箱<a href="#" target="_blank" class="mail" id="amail"></a>中</p>
+             
+            <em>请点击邮箱中的验证链接完成验证</em>
+        </div>
+        <div id="button" style="position:absolute;width:300px;top:300px;">
+            <a href="index.html">
+                <input class="PButton" type="button" value="返&emsp;&ensp;&ensp;回" style="position: absolute;left: 8px;top: -70px;" />
+            </a>
+            <form method="post" action="">
+                <input class="PButton" type="button" id="submit1" value="提&emsp;&ensp;交" style="position:relative;left:270px;top:-70px;" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

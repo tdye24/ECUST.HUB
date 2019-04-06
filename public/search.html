@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/default.css" rel="stylesheet" />
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./js/search.js"></script>
+    <link href="css/search.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="search_header">
+        <svg width="1200px" height="428px" style="background-color:rgba(240, 243, 255, 1);position:absolute;top:200px;"></svg>
+        <svg width="1200px" height="50px" style="background-color:#808080;position:absolute;top:150px;"></svg>
+        <svg width="1200px" height="150px" style="background-color:#2d2d2d"></svg>
+        <img src="images/logo-white.png" width="240" height="150" style="position:absolute;top:0px;left:0px;" />
+        <p style="position:absolute;left:230px;top:30px;color:white;font-weight:bold;font-size:50px">ECUST.HUB 文件代码托管平台</p>
+
+        <p id="username" style="position:absolute;left:950px;top:0px;color:white;font-weight:bold">用&nbsp;户&nbsp;名:</p>
+        <p id="point" style="position:absolute;left:950px;top:30px;color:white;font-weight:bold">积&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分:</p>
+        <img id="avatar" src="" width="50" height="50" style="position:absolute;top:20px;left:880px;border-radius:50px;" />
+        <a href="center.html">
+            <p style="position:absolute;left:950px;top:60px;color:white;font-weight:bold">个人中心</p>
+        </a>
+        <a href="##">
+            <p id="checkout" style="position:absolute;left:1090px;top:60px;color:white;font-weight:bold">安全退出</p>
+        </a>
+    </div>
+    <div class="search" style="position:absolute;left:300px;top:250px">
+        <form method="get">
+            <p>
+                <input type="search" id="key" placeholder="想搜什么就搜什么" style="width:450px;height: 40px;font-size: 20px;" />
+                <input id="queryBtn" type="button" value="搜     索" style="position:relative;left:50px;width:100px;border-radius: 10px;height: 40px;outline: none;" />
+            </p>
+        </form>
+    </div>
+    <div class="panel">
+        <div class="top">
+            <ul class="tabs">
+                <li id="recommend_user" class="tab tabCurrent"><a href="javascript:void(0);">推荐用户</a><span class="line"></span></li>
+                <li id="recommend_source" class="tab"><a href="javascript:void(0);">推荐资源</a><span class="line"></span></li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <!--推荐用户-->
+            <div name="content" class="goods goodsShow">
+                <div id="DadminTbody" style="height:160px;"></div>
+                <div class="sousuo">
+                    <input id="friend_username" type="text" placeholder="请输入好友用户名" />
+                    <a href="###">
+                        <input id="search_friend" type="button" style="outline:none" class="PButton" value="好友搜索" />
+                    </a>
+                </div>
+                <div id="Dbarcon" class="Dbarcon" width="100%">
+                    <div id="DDbarcon1" class="DDbarcon1"></div>
+                    <div id="DDbarcon2" class="DDbarcon2">
+                        <p class="PButton"><a href="###" id="DfirstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="DprePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="DnextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="DlastPage">尾页</a></p>
+                        <p>
+                            <select id="DjumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="DjumpPage" onclick="DjumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--推荐资源-->
+            <div name="content" class="goods">
+                <div id="UadminTbody"></div>
+                <div id="Ubarcon" class="Ubarcon" width="618">
+                    <div id="Ubarcon1" class="Ubarcon1"></div>
+                    <div id="Ubarcon2" class="Ubarcon2">
+                        <p class="PButton"><a href="###" id="UfirstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="UprePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="UnextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="UlastPage">尾页</a></p>
+                        <p>
+                            <select id="UjumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="UjumpPage" onclick="UjumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var tabs = document.getElementsByTagName("li");
+        var goods = document.getElementsByName("content");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].index = i;
+            tabs[i].onmousedown = function () {
+                for (var j = 0; j < tabs.length; j++) {
+                    var cn = tabs[j].className;
+                    if (cn.indexOf("tabCurrent")) {
+                        tabs[j].className = cn.replace("tabCurrent", "");
+                    }
+                    $('#UadminTbody').html(``);
+                }
+                var className = this.className;
+                this.className = className.concat(" tabCurrent");
+                for (var k = 0; k < goods.length; k++) {
+                    goods[k].style.display = "none";
+
+                }
+                goods[this.index].style.display = "block";
+
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Up/Down-load</title>
+</head>
+<body>
+    <div id="upload" style="height: 600px; width: 640px; padding: 5px; border: 1px solid #CCC;position: absolute;left: 10px;"></div>
+    <div id="download" style="height: 600px; width: 640px; padding: 5px; border: 1px solid #CCC; position: absolute;right: 10px;"></div>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script src="source/echarts.js"></script>
+    <script type="text/javascript">
+    var uploadOption = {
+        backgroundColor: '#1b1b1b',
+        color: ['gold','aqua','lime'],
+        title : {
+            text: 'Upload Traffic',
+            show: true,
+            x:'center',
+            textStyle : {
+                color: '#fff'
+            }
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: function(params) {
+                if(params[3] != undefined) {
+                    return params[1] + '<br/>'  + '流量：'  + params[3];
+                }
+                console.log(params);
+                return params[1] + '<br/>'  + '流量：0'; 
+            }
+        },
+        toolbox: {
+            show : true,
+            orient : 'vertical',
+            x: 'right',
+            y: 'center',
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        dataRange: {
+            min : 0,
+            max : 20,
+            calculable : true,
+            color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+            textStyle:{
+                color:'#fff'
+            }
+        },
+        series : [
+            {
+                name: '',
+                type: 'map',
+                roam: false,
+                hoverable: false,
+                mapType: 'china',
+                itemStyle:{
+                    normal:{
+                        borderColor:'rgba(100,149,237,1)',
+                        borderWidth:0.5,
+                        areaStyle:{
+                            color: '#1b1b1b'
+                        }
+                    }
+                },
+                data:[],
+                markLine : {    
+                    smooth:true,
+                    symbol: ['none', 'circle'],  
+                    symbolSize : 1,
+                    itemStyle : {
+                        normal: {
+                            color:'#fff',
+                            borderWidth:1,
+                            borderColor:'rgba(30,144,255,0.5)'
+                        }
+                    },
+                    data : [],
+                },
+                geoCoord: {
+            
+                }
+            },
+            {
+                name: '',
+                type: 'map',
+                mapType: 'china',
+                data:[],
+                markLine : {
+                    smooth:true,
+                    effect : {
+                        show: true,
+                        scaleSize: 2,
+                        period: 30,
+                        color: '#fff',
+                        shadowBlur: 10
+                    },
+                    itemStyle : {
+                        normal: {
+                            borderWidth:1,
+                            lineStyle: {
+                                type: 'solid',
+                                shadowBlur: 10
+                            }
+                        }
+                    },
+                    data : []
+                },
+                markPoint : {
+                    symbol:'emptyCircle',
+                    symbolSize : function (v){
+                        return 10 + v/10
+                    },
+                    effect : {
+                        show: true,
+                        shadowBlur : 0
+                        
+                    },
+                    itemStyle:{
+                        normal:{
+                            label:{show:true}
+                        },
+                        emphasis: {
+                            label:{position:'top'}
+                        }
+                    },
+                    data : []
+                }
+             
+            }
+        ]
+    };
+    var downloadOption = {
+        backgroundColor: '#1b1b1b',
+        color: ['gold','aqua','lime'],
+        title : {
+            text: 'Download Traffic',
+            show: true,
+            x:'center',
+            textStyle : {
+                color: '#fff'
+            }
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: function(params) {
+                if(params[3] != undefined) {
+                    return params[1] + '<br/>'  + '流量：'  + params[3];
+                }
+                console.log(params);
+                return params[1] + '<br/>'  + '流量：0'; 
+            }
+        },
+        toolbox: {
+            show : true,
+            orient : 'vertical',
+            x: 'right',
+            y: 'center',
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        dataRange: {
+            min : 0,
+            max : 20,
+            calculable : true,
+            color: ['#ff3333', 'orange', 'yellow','lime','aqua'],
+            textStyle:{
+                color:'#fff'
+            }
+        },
+        series : [
+            {
+                name: '',
+                type: 'map',
+                roam: false,
+                hoverable: false,
+                mapType: 'china',
+                itemStyle:{
+                    normal:{
+                        borderColor:'rgba(100,149,237,1)',
+                        borderWidth:0.5,
+                        areaStyle:{
+                            color: '#1b1b1b'
+                        }
+                    }
+                },
+                data:[],
+                markLine : {    
+                    smooth:true,
+                    symbol: ['none', 'circle'],  
+                    symbolSize : 1,
+                    itemStyle : {
+                        normal: {
+                            color:'#fff',
+                            borderWidth:1,
+                            borderColor:'rgba(30,144,255,0.5)'
+                        }
+                    },
+                    data : [],
+                },
+                geoCoord: {
+            
+                }
+            },
+            {
+                name: '',
+                type: 'map',
+                mapType: 'china',
+                data:[],
+                markLine : {
+                    smooth:true,
+                    effect : {
+                        show: true,
+                        scaleSize: 2,
+                        period: 30,
+                        color: '#fff',
+                        shadowBlur: 10
+                    },
+                    itemStyle : {
+                        normal: {
+                            borderWidth:1,
+                            lineStyle: {
+                                type: 'solid',
+                                shadowBlur: 10
+                            }
+                        }
+                    },
+                    data : []
+                },
+                markPoint : {
+                    symbol:'emptyCircle',
+                    symbolSize : function (v){
+                        return 10 + v/10
+                    },
+                    effect : {
+                        show: true,
+                        shadowBlur : 0
+                        
+                    },
+                    itemStyle:{
+                        normal:{
+                            label:{show:true}
+                        },
+                        emphasis: {
+                            label:{position:'top'}
+                        }
+                    },
+                    data : []
+                }
+             
+            }
+        ]
+    };
+                    
+    require.config({
+        paths: {
+            echarts: './source'
+        }
+    });
+    var ecConfig ;
+    require(['echarts','echarts/chart/map'], function(ec) {
+        let uploadChart = ec.init(document.getElementById('upload'));
+        uploadChart.showLoading({
+            text: '正在加载数据...'
+        });
+        let downloadChart = ec.init(document.getElementById('download'));
+        downloadChart.showLoading({
+            text: '正在加载数据...'
+        });
+        uploadChart.setOption(uploadOption);
+        downloadChart.setOption(downloadOption);
+        $.ajax({
+            url: 'http://localhost:3000/admin/resource/geoCoord',
+            type: 'get',
+            dataType: 'json',
+            data: '',
+            success: function(result) {
+                var uploadOption = uploadChart.getOption();
+                var downloadOption = downloadChart.getOption();
+                uploadOption.series[0]['geoCoord'] = result;
+                downloadOption.series[0]['geoCoord'] = result;
+                uploadChart.setOption(uploadOption);
+                downloadChart.setOption(downloadOption);    
+            }
+        });
+        $.ajax({
+            url: 'http://localhost:3000/admin/resource/line/upload',
+            type: 'get',
+            dataType: 'json',
+            data: '',
+            success: function(result) {
+                var uploadOption = uploadChart.getOption();
+                uploadOption.series[1].markLine.data = result;
+                uploadChart.setOption(uploadOption);  
+            }
+        });
+        $.ajax({
+            url: 'http://localhost:3000/admin/resource/line/download',
+            type: 'get',
+            dataType: 'json',
+            data: '',
+            success: function(result) {
+                var downloadOption = downloadChart.getOption();
+                downloadOption.series[1].markLine.data = result;
+                downloadChart.setOption(downloadOption);
+            }
+        });
+        $.ajax({
+            url: 'http://localhost:3000/admin/resource/mark',
+            type: 'get',
+            dataType: 'json',
+            data: '',
+            success: function(result) {
+                var uploadOption = uploadChart.getOption();
+                var downloadOption = downloadChart.getOption();
+                uploadOption.series[1].markPoint.data = result;
+                downloadOption.series[1].markPoint.data = result;
+                uploadChart.setOption(uploadOption);
+                downloadChart.setOption(downloadOption);
+            }
+        });
+        uploadChart.hideLoading();  
+        downloadChart.hideLoading();
+        setInterval(function() {
+            $.ajax({
+                url: 'http://localhost:3000/admin/resource/geoCoord',
+                type: 'get',
+                dataType: 'json',
+                data: '',
+                success: function(result) {
+                    var uploadOption = uploadChart.getOption();
+                    var downloadOption = downloadChart.getOption();
+                    uploadOption.series[0]['geoCoord'] = result;
+                    downloadOption.series[0]['geoCoord'] = result;
+                    uploadChart.setOption(uploadOption);
+                    downloadChart.setOption(downloadOption);    
+                }
+            });
+            $.ajax({
+                url: 'http://localhost:3000/admin/resource/line/upload',
+                type: 'get',
+                dataType: 'json',
+                data: '',
+                success: function(result) {
+                    var uploadOption = uploadChart.getOption();
+                    uploadOption.series[1].markLine.data = result;
+                    uploadChart.setOption(uploadOption);  
+                }
+            });
+            $.ajax({
+                url: 'http://localhost:3000/admin/resource/line/download',
+                type: 'get',
+                dataType: 'json',
+                data: '',
+                success: function(result) {
+                    var downloadOption = downloadChart.getOption();
+                    downloadOption.series[1].markLine.data = result;
+                    downloadChart.setOption(downloadOption);
+                }
+            });
+            $.ajax({
+                url: 'http://localhost:3000/admin/resource/mark',
+                type: 'get',
+                dataType: 'json',
+                data: '',
+                success: function(result) {
+                    var uploadOption = uploadChart.getOption();
+                    var downloadOption = downloadChart.getOption();
+                    uploadOption.series[1].markPoint.data = result;
+                    downloadOption.series[1].markPoint.data = result;
+                    uploadChart.setOption(uploadOption);
+                    downloadChart.setOption(downloadOption);
+                }
+            }); 
+        }, 31000);
+            
+    });        
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+#temates {
+	background-color: #F0FFF0;
+	width:600px;
+	height: 542px;
+	position: absolute;
+	left: 0px;
+	top: 98px;
+
+}
+
+
+#warehouses {
+	background-color: #F0FFFF;
+	width:600px;
+	height: 542px;
+	position: absolute;
+	right: 0px;
+	top: 98px;
+}
+
+
+#team_title {
+	position: absolute;
+	top: 62px;
+	left: 0px;
+	font-size: 25px;
+	font-weight: 600;
+	/*background-color: red;*/
+
+}
+
+
+table {
+	width:400px;
+}
+
+#members_info {
+	position: absolute;
+	left: 100px;
+	top: 100px;
+}
+
+#warehouses_info {
+	position: absolute;
+	left: 115px;
+	top: 100px;
+}

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>详情</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../js/detail.js"></script>
+    <script type="text/javascript" src="../js/download.js"></script>
+    <link href="./css/default.css" rel="stylesheet" />
+    <link href="./css/detail.css" rel="stylesheet" />
+    <style type="text/css">
+        .footer{text-align: center; position:absolute;top: 800px; width:100%;height:40px;}
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div class="search_header">
+        <svg id="background" width="1200px" height="740px" class="background"></svg>
+        <div>
+            <svg width="1200px" height="60px" class="blackhead"></svg>
+            <img id="myavatar" src="" style="position:absolute;top:10%;left:75%;height:80%; border-radius:50px;" />
+            <p id="username" style="color:white;position:absolute;top:10%;left:80%;font-size:15px;">用户名</p>
+            <p id="point" style="color:white;position:absolute;top:45%;left:80%;font-size:15px;">当前积分</p>
+            <a href="center.html">
+            <p style="color:white;position:absolute;top:45%;left:93%;font-size:15px;">个人中心</p></a>
+            <svg class="greyhead"style=" width:100% ;height:60%;"></svg>
+            <img src="images/logo-white.png"
+                 style="position: absolute; top: 0%; left: 0%;width:17%;height:92%;" />
+            <p style="position: absolute; left: 18%; top: 30%; color: white; font-weight: bold; font-size: 30px">文件详情</p>
+        </div>
+        <div class="search" style="position: absolute; left: 50%; top:100%;">
+                <p>
+                    <input id="search_key" type="search" style="width: 150%;border-radius:10px;border:none;outline: none;" />
+                    <input id="search" type="submit" value="搜   索" style="font-size:15px;height:100%;position:absolute;top:0%; left:160%; width: 50%;border:none;border-radius:10px;outline: none" />
+                </p>
+        </div>
+    </div>
+    <!---文件详细信息-->
+    <div>
+        <div class="uploader">
+            <img id="other_avatar" src="" style="position:absolute;top:10%;left:10%;width:80%;border-radius:80%;" />
+            <p id="uploader_username" class="text" style="font-size:15px;left:0%;top:45%;color:white;font-weight:bold;width: 140px;">上传者</p>
+            <p id="uploader_point" class="text" style="font-size:15px;left:0%;top:52%;color:white;font-weight:bold;width: 140px;">积分</p>
+            <p id="uploader_motto" class="text" style="font-size:15px;left:0%;top:59%;height:30%;color:white;font-weight:bold;width: 180px;">个性签名</p>
+        </div>
+        <div class="documentdetail">
+            <div class="whiteback">
+                <p id="title" class="text" style="font-size:25px;top:4%;left:5%;font-weight:bold;"></p>
+                <p id="time" class="text" style="top:6%;left:60%;"></p>
+                <div class="line"></div>
+                <p id="description" class="text" style="top:18%;left:5%;"></p>
+                <p id="size" class="text" style="top:85%;left:60%;"></p>
+                <p id="file_point" class="text" style="top:85%;left:5%;"></p>
+                <img id="download" src="./images/download.png" style="position: absolute; top:310px;left:560px;width: 80px;outline: none;">
+            </div>
+        </div>
+        <!--评论留言-->
+        <p style="position:absolute;font-weight:bold;color:black;font-size:25px;top:1050%;left:10%;">文件评论</p>
+        <div id="comment_area" class="comment">
+        </div>
+    </div>
+    <!---添加留言-->
+    <input id="comment_btn" type="button" value="留言" style="position:fixed;width:8%;height:6%;right: 0px;top: 45%;border-radius: 20px;outline: none;font-family: KaiTi" />
+    <input id="backtotop" type="button" value="返回顶部" style="position:fixed;width:8%;height:6%;right: 0px;top: 55%;border-radius: 20px;outline: none;font-family: KaiTi" />
+    <div id="comment_editor" style="position: fixed;left: 40%; top: 43%; width: 20%; height: 60px; background-color: gray; display: block; border-radius: 10px;display: none;"><input id="comment_text" style="font-family: KaiTi; border-radius: 3px; position: relative;width: 95%; margin: 5px 5px 5px 5px" type="text" name=""><button id="comment_editor_cancel" style="position: absolute;left: 5px;bottom: 5px;width: 40px;height: 20px;border-radius: 5px;outline: none; font-family: KaiTi; font-size: 10px;">取消</button><button id="comment_editor_submit" style="position: absolute;right: 5px;bottom: 5px;width: 40px;height: 20px;border-radius: 5px;outline: none; font-family: KaiTi;font-size: 10px;">提交</button></div>
+    <div id="reply_area" style="position: fixed;left: 40%; top: 43%; width: 20%; height: 60px; background-color: gray; display: block; border-radius: 10px;display: none;"><input id="reply_text" style="font-family: KaiTi; border-radius: 3px; position: relative;width: 95%; margin: 5px 5px 5px 5px" type="text" name=""><button id="reply_area_cancel" style="position: absolute;left: 5px;bottom: 5px;width: 40px;height: 20px;border-radius: 5px;outline: none; font-family: KaiTi; font-size: 10px;">取消</button><button id="reply_area_submit" style="position: absolute;right: 5px;bottom: 5px;width: 40px;height: 20px;border-radius: 5px;outline: none; font-family: KaiTi;font-size: 10px;">提交</button></div>
+    <div class="footer">--------------------I have boundries ~ -----------------------</div>
+</body>
+</html>

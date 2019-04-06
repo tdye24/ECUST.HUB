@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/default.css" rel="stylesheet" />
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/getback.css">
+    <script type="text/javascript" src="./js/reset.js"></script>
+</head>
+<body>
+    <div class="search_header">
+        <svg width="1200px" height="520px" style="background-color:rgba(240, 243, 255, 1);position:absolute;top:150px;"></svg>
+        <svg width="1200px" height="100px" style="background-color:#2d2d2d"></svg>
+        <svg width="1200px" height="50px" style="background-color:#808080;position:absolute;top:100px;"></svg>
+        <img src="images/logo/logo-white.png" width="240" height="100" style="position:absolute;top:0px;left:0px;" />
+        <p style="position:absolute;left:250px;top:25px;color:white;font-weight:bold;font-size:30px">密码找回</p>
+    </div>
+    <div style="position:absolute;top:200px;left:450px;width:100%;height:70%;">
+        <div class="action" style="display:inline;">
+            <p class="naction" id="action1" style="left:-150px;">①确认邮箱</p>
+            <p class="naction" id="action2" style="left:100px;top:-65px;font-weight:bold;">②重置密码</p>
+            <p class="naction" id="action3" style="left:350px;top:-130px;">③重置成功</p>
+            <hr style="height:5px;position:relative;top:-180px;width:550px;left:-450px;border:none;background-color: #808080;z-index:3;" />
+        </div>
+        <form id="resetpassword"style="top:-80px;position:relative;" method ="post" action="">
+            <p>新&ensp;密&ensp;码<input type="password" id="firstPassword" /></p>
+            <p>确认密码<input type="password" id="secondPassword"/></p>
+        </form>
+        <div id="complete" style="position:relative;left:100px;display:none;top:-150px;">
+            <img src="images/success.png" style="height:50px;width:50px;position:relative;top:75px;left:-80px;" />
+            <p style="font-size: 30px">密码重置成功!</p>
+        </div>
+        <div id="fail" style="position:relative;left:0px;display:none;top:-150px;">
+            <p style="font-size: 30px">链接失效，请重新重置密码！</p>
+        </div>
+        <div style="position:absolute;width:300px;top:300px;">
+            <form method="post" action="">
+                <input type="button" id="submit1" value="提&emsp;&ensp;交" style="position:relative;left:190px;top:-25px;" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

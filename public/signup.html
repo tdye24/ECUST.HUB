@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="css/default.css" rel="stylesheet" />
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./js/signup.js"></script>
+</head>
+<body>
+    <div class="search_header">
+        <svg width="1200px" height="720px" style="background-color:rgba(240, 243, 255, 1);position:absolute;top:150px;"></svg>
+        <svg width="1200px" height="100px" style="background-color:#2d2d2d"></svg>
+        <svg width="1200px" height="50px"  style="background-color:#808080;position:absolute;top:100px;"></svg>
+        <img src="images/logo-white.png" width="240" height="100" style="position:absolute;top:0px;left:0px;" />
+        <p style="position:absolute;left:250px;top:25px;color:white;font-weight:bold;font-size:30px">注册</p>
+    </div>
+    <div class="signup"style="position:absolute;top:200px;left:450px">
+        <form method="post" action="signup">
+            <p>
+                注:带有*的必填
+            </p>
+            <p>
+                *用&ensp;户&ensp;名:
+                <input type="text" id="username" /><span id="username_valid"></span>
+            </p>
+            <p>
+                *学&emsp;&ensp;&ensp;号:
+                <input type="text" id="campusCardId" />
+            </p>
+            <p>
+                *性&emsp;&ensp;&ensp;别:
+                <select id="sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </p>
+            <p>
+                *邮&emsp;&ensp;&ensp;箱:
+                <input type="email" id="email" />
+            </p>
+            <p>
+                &ensp;个性签名:
+            </p>
+                <textarea id="motto" rows="3"style="position:relative;left:80px;"></textarea>
+            <p>
+                *手机号码:
+                <input type="tel" id="telephone" />
+            </p>
+            <p>
+                *身份证号:
+                <input type="text" id="IDCard" />
+            </p>
+            <p>
+                *密&emsp;&ensp;&ensp;码:
+                <input type="password" id="firstPassword" />
+            </p>
+            <p>
+                *确认密码:
+                <input type="password" id="secondPassword" />
+            </p>
+        </form>
+            <a href="index.html">
+                <input type="button" value="取消注册" />
+            </a>
+            <form method="post"action="index.html">
+                <input type="button" id="signup" value="提&emsp;&ensp;交"style="position:relative;left:190px;top:-25px;"/>
+            </form>
+    </div>
+</body>
+</html>

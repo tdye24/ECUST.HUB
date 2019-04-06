@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>ECUST.HUB文件代码托管平台</title>
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" type="text/css" href="./css/admin.css">
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./js/admin.js"></script>
+</head>
+<body>
+    <svg width="1200px" height="580px"
+         style="background-color: rgba(240, 243, 255, 1); position: absolute; top: 100px;"></svg>
+    <div class="banner">
+        <img id=pic src="images/logo/AdministratorLogin.png" style="width:1200px;height:150px;" border=0 />
+        <br>
+        <div id="pad">
+        </div>
+    </div>
+    <div>
+        <svg width="1200px" height="50px" style="background-color:#808080;position:relative;top:150px">
+        </svg>
+    </div>
+    <div class="logo">
+        <img src="images/logo/logo-black2.png" alt="0" style="height:160px;width:360px;" />
+    </div>
+    <!--登录部分-->
+    <div class="content" style=" position:absolute;left:477px;top:430px;">
+            <p>
+                用户名:<input type="text" id="adminame">
+            </p>
+            <p>
+                密&nbsp;&nbsp;码:<input type="password" id="password">
+            </p>
+            <p>
+                验证码:<input type="text" id="input-code">&emsp;&emsp;<span id="vert-code"></span>
+            </p>
+            <button id="login" style="position: absolute;left: 170px;">登录</button>
+    </div>
+</body>
+</html>

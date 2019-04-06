@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>搜索结果</title>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <link href="./css/result.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/result.js"></script>
+</head>
+<body>
+    <!--头部-->
+    <div class="search_header">
+        <svg width="1200px" height="860px"
+             style="background-color: rgba(240, 243, 255, 1); position: absolute; top: 100px;"></svg>
+        <svg width="1200px" height="60px" style="background-color: #2d2d2d"></svg>
+        <svg width="1200px" height="40px"
+             style="background-color: #808080; position: absolute; top: 60px;"></svg>
+        <a href="center.html">
+            <img id="avatar" src="" style="position:absolute;top:5%;left:70%;height:80%; border-radius:50px;" />
+        </a>
+        <p id="username" style="color:white;position:absolute;top:5%;left:75%;font-size:13px;">用户名</p>
+        <p id="point" style="color:white;position:absolute;top:5%;left:88%;font-size:13px;">当前积分</p>
+        <a href="center.html">
+            <p style="color:white;position:absolute;top:35%;left:75%;font-size:13px;">个人主页</p>
+        </a>
+        <a href="##">
+            <p id="logout" style="color:white;position:absolute;top:35%;left:88%;font-size:13px;">安全退出</p>
+        </a>
+        <img src="images/logo-white.png" width="240" height="60"
+             style="position: absolute; top: 0px; left: 0px;" />
+        <p style="position: absolute; left: 250px; top: 20px; color: white; font-weight: bold; font-size: 25px">搜索中心</p>
+        <div class="search" style="position: absolute; left: 580px; top: 65px">
+                <p>
+                    <input type="search" id="search_key" style="width: 450px;border-radius:10px;border:none;" />
+                    <input type="submit" id="search" value="搜   索" style="font-size:15px;height:25px;position: relative; left:30px; width: 100px;border:none;border-radius:10px;outline: none" />
+                </p>
+        </div>
+    </div>
+
+        <div width="100%" height="80%" style=" position:relative;top:80px;">
+            <p id="result_info" style="position:relative;font-size:30px;font-weight:bold;left:5%;top:-30px;">搜索结果:</p>
+            <div id="DadminTbody"style="position:relative;top:-20px;">
+            </div>
+        </div>
+        <div id="DDbarcon1" class="DDbarcon1"></div>
+        <div id="Dbarcon" class="Dbarcon" width="100%">
+            <div id="DDbarcon1" class="DDbarcon1"></div>
+            <div id="DDbarcon2" class="DDbarcon2">
+                <p class="PButton"><a href="###" id="DfirstPage">首页</a></p>
+                <p class="PButton"><a href="###" id="DprePage">上一页</a></p>
+                <p class="PButton"><a href="###" id="DnextPage">下一页</a></p>
+                <p class="PButton"><a href="###" id="DlastPage">尾页</a></p>
+                <p>
+                    <select id="DjumpWhere"></select>
+                </p>
+                <p class="PButton"style="position:relative;"><a href="###" id="DjumpPage" onclick="DjumpPage()">跳转</a></p>
+            </div>
+        </div>
+</body>
+</html>

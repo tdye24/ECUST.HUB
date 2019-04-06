@@ -1,0 +1,55 @@
+#warehouses {
+	width:600px;
+	height: 542px;
+	position: absolute;
+	left: : 0px;
+	top: 98px;
+}
+
+
+#warehouse_title {
+	position: absolute;
+	top: 62px;
+	left: 0px;
+	font-size: 25px;
+	font-weight: 600;
+	border: 2px bold black;
+	/*background-color: red;*/
+
+}
+
+#code_edit {
+	width:600px;
+	height: 542px;
+	position: absolute;
+	right: 0px;
+	top: 98px;
+}
+
+
+#code_edit_title {
+	position: absolute;
+	top: 62px;
+	left: 0px;
+	font-size: 25px;
+	font-weight: 600;
+	/*background-color: red;*/
+
+}
+
+
+table {
+	width:500px;
+}
+
+#code_info {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+}
+
+#code_detail {
+	position: absolute;
+	left: 0px;
+	top: 100px;
+}

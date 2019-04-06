@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="./js/otheruser.js"></script>
+    <link href="./css/basic.css" rel="stylesheet">
+    <link href="./css/otherusercenter .css" rel="stylesheet" />
+</head>
+<body>
+    <!--头部-->
+    <div class="search_header">
+        <svg width="1200px" height="860px"
+             style="background-color: rgba(240, 243, 255, 1); position: absolute; top: 100px;"></svg>
+        <svg width="1200px" height="60px" style="background-color: #2d2d2d"></svg>
+        <svg width="1200px" height="40px"
+             style="background-color: #808080; position: absolute; top: 60px;"></svg>
+        <img id="myavatar" src="" style="position:absolute;top:10%;left:75%;height:80%; border-radius:50px;" />
+        <p id="myusername" style="color:white;position:absolute;top:10%;left:80%;font-size:15px;">用户名</p>
+        <p id="mypoint" style="color:white;position:absolute;top:45%;left:80%;font-size:15px;">当前积分</p>
+        <img src="images/logo-white.png" width="240" height="60"
+             style="position: absolute; top: 0px; left: 0px;" />
+        <p style="position: absolute; left: 250px; top: 20px; color: white; font-weight: bold; font-size: 25px">他人中心</p>
+        <a href="center.html">
+            <p style="color:white;position:absolute;top:17px;left:93%;font-size:15px;">个人中心</p></a>
+        <div class="search" style="position: absolute; left: 580px; top: 65px">
+                <p>
+                    <input type="search" id="search_key" style="width: 450px;border-radius:10px;border:none;outline: none;" />
+                    <input type="submit" id="search" value="搜   索" style="font-size:15px;height:25px;position: relative; left:30px; width: 100px;border:none;border-radius:10px;outline: none;" />
+                </p>
+        </div>
+    </div>
+    <!--用户个人中心头部-->
+    <div class="userblock">
+        <svg width="958px" height="150px" style="background-color: rgba(204, 204, 204, 1); position: absolute; top: 140px; left: 120px;border-radius: 0 100px 0 0;"></svg>
+        <p id="o_username" style="position:absolute;left:280px;top:160px;color:black;font-weight:bold;font-size:20px;">用&nbsp;户&nbsp;名&nbsp; :</p>
+        <p id="o_motto" style="position:absolute;left:280px;top:195px;color:black;font-weight:bold;font-size:20px;">个性签名 :</p>
+        <img id="other_avatar1" src="" width="80" height="80" style="position:absolute;top:160px;left:160px;border-radius:50px;" />
+        <p id="o_point" style="position:absolute;left:880px;top:250px;color:black;font-weight:bold;font-size:20px;">积分 :</p>
+        <p id="follow" style="position:absolute;width:10%;height:60%;top:250%;left:70%;background-color:white;text-align:center;border-radius:50px;"><a href="###">关注</a></p>
+    </div>
+    <!---便签页面-->
+    <div class="panel">
+        <div class="top">
+            <ul class="tabs">
+                <li class="tab tabCurrent"><a href="javascript:void(0);">个人资料</a><span class="line"></span></li>
+                <li id="uploadrecord" class="tab"><a href="javascript:void(0);">上传管理</a><span class="line"></span></li>
+                <li class="tab"><a href="center.html">返回中心</a></li>
+                <li id="logout" class="tab"><a href="##">退出登录</a></li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <!--个人资料-->
+            <div name="content" class="goods goodsShow">
+                <p class="smallheader">
+                    个人资料
+                </p>
+                <div class="texts">
+                    <p class="text">用&nbsp;户&nbsp;名&nbsp;:</p>
+                    <p class="text">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;:</p>
+                    <p class="text">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号&nbsp;:</p>
+                    <p class="text">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱&nbsp;:</p>
+                    <p class="text">手&nbsp;机&nbsp;号&nbsp;:</p>
+                    <p class="text">个性签名:</p>
+                </div>
+                <div class="datas" id="datas">
+                    <p class="data" id="username"></p>
+                    <p class="data" id="sex"></p>
+                    <p class="data" id="campusCardId"></p>
+                    <p class="data" id="email"></p>
+                    <p class="data" id="telephone"></p>
+                    <p class="data" id="motto"></p>
+                    <img id="other_avatar2" src="" width="150" height="150" style="position:absolute;top:30px;left:400px;border-radius:150px;" />
+                </div>
+            </div>
+            <!--上传管理-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    上传管理
+                </p>
+                <div width="100%" height="80%" style=" border:none;">
+                    <div id="DadminTbody">
+                    </div>
+                </div>
+                <div id="Dbarcon" class="Dbarcon" width="100%">
+                    <div id="DDbarcon1" class="DDbarcon1"></div>
+                    <div id="DDbarcon2" class="DDbarcon2">
+                        <p class="PButton"><a href="###" id="DfirstPage">首页</a></p>
+                        <p class="PButton"><a href="###" id="DprePage">上一页</a></p>
+                        <p class="PButton"><a href="###" id="DnextPage">下一页</a></p>
+                        <p class="PButton"><a href="###" id="DlastPage">尾页</a></p>
+                        <p>
+                            <select id="DjumpWhere"></select>
+                        </p>
+                        <p class="PButton"><a href="###" id="DjumpPage" onclick="DjumpPage()">跳转</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--返回中心-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    上传
+                </p>
+            </div>
+            <!--退出登录-->
+            <div name="content" class="goods">
+                <p class="smallheader">
+                    退出登录
+                </p>
+            </div>
+        </div>
+    </div>
+    <script> 
+        var tabs = document.getElementsByTagName("li");
+        var goods = document.getElementsByName("content");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].index = i;
+            tabs[i].onmousedown = function () {
+                for (var j = 0; j < tabs.length; j++) {
+                    var cn = tabs[j].className;
+                    if (cn.indexOf("tabCurrent")) {
+                        tabs[j].className = cn.replace("tabCurrent", "");
+                    }
+                    $('#adminTbody').html(``);
+                    $('#DadminTbody').html(``);
+                    $('#UadminTbody').html(``);
+                }
+                var className = this.className;
+                this.className = className.concat(" tabCurrent");
+                for (var k = 0; k < goods.length; k++) {
+                    goods[k].style.display = "none";
+                }
+                goods[this.index].style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Handwriting Calculator</title>
+    <style type="text/css">
+        canvas {
+            border: 2px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        var box = document.getElementById('box');
+        var oc = box.getContext('2d');
+        oc.lineWidth = 4;
+        box.onmousedown = function (e) {
+            e = e || window.event;
+            var ox = e.clientX - box.offsetLeft;
+            var oy = e.clientY - box.offsetTop;
+            oc.moveTo(ox, oy);
+            document.onmousemove = function (e) {
+                var ox1 = e.clientX - box.offsetLeft;
+                var oy1 = e.clientY - box.offsetTop;
+                oc.lineTo(ox1, oy1);
+                oc.stroke();
+                oc.strokeStyle = 'white';
+            };
+            document.onmouseup = function () {
+                document.onmousemove = document.onmouseup = null;
+            };
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#submit").click(function (event) {
+                var box = document.getElementById('box');
+                var context = box.getContext('2d');
+                var imgData = context.getImageData(0, 0, box.width, box.height).data;
+                $.post("get_result", {"img_data": imgData.toLocaleString()}, function (json, textStatus) {
+                    $("#result").text(json["status"])
+                });
+            })
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $("#clear").click(function (event) {
+                var box = document.getElementById('box');
+                var context = box.getContext('2d');
+                context.fillStyle = "#000000";
+                context.beginPath();
+                context.fillRect(0, 0, box.width, box.height);
+                context.closePath();
+                $("#result").text("")
+            })
+        });
+    </script>
+</head>
+
+<body bgcolor="#D2B48C">
+
+    <h1 style="text-align: center;">Handwriting Calculator</h1>
+    <canvas id="box" width="1000" height="200" style="background: black"></canvas>
+    <br>
+    <button type="button" id="submit" style="height: 45px; width: 80px; border-radius: 10px;outline: none;">SUBMIT</button>
+    <button type="button" id="clear" style="height: 45px; width: 80px; border-radius: 10px;outline: none;">CLEAR</button>
+
+    <div id="result" style="display: inline;font-family: KaiTi;font-size: 40px">
+     </div>
+    <div style="width: 1000px;height: 200px;border: 2px solid;">sd</div>
+</body>
+</html>

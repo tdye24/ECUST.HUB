@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>仓库</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../js/download.js"></script>
+    <script type="text/javascript" src="../js/warehouse.js"></script>
+    <link href="./css/default.css" rel="stylesheet" />
+    <link href="./css/detail.css" rel="stylesheet" />
+    <link href="./css/warehouse.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/download.js"></script>
+    <style type="text/css">
+        .footer{text-align: center; position:absolute;top: 800px; width:100%;height:40px;}
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div class="search_header">
+        <svg id="background" width="1200px" height="650px" class="background"></svg>
+        <div>
+            <svg width="1200px" height="60px" class="blackhead"><a href="center.html">
+            </svg>
+            <a href="center.html"><p style="color:white;position:absolute;top:30px;left:93%;font-size:15px;"><b>个人中心</b></p></a>
+            <div id="warehouse_title"></div>
+            <svg class="greyhead"style=" width:100% ;height:60%;"></svg>
+            <img src="images/logo-white.png"
+                 style="position: absolute; top: 0%; left: 0%;width:17%;height:92%;" />
+        </div>
+        <div class="search" style="position: absolute; left: 50%; top:100%;">
+                <p>
+                    <input id="search_key" type="search" style="width: 150%;border-radius:10px;border:none;outline: none;" />
+                    <input id="search" type="submit" value="搜   索" style="font-size:15px;height:100%;position:absolute;top:0%; left:160%; width: 50%;border:none;border-radius:10px;outline: none" />
+                </p>
+        </div>
+    </div>
+    <div id="warehouses">
+        <h5>仓库:</h5>
+        <input id="file" type="file" name="files" multiple="multiple" style="color: black;border: 3px bold black;width:392px;" />
+        <button id="submit_code_btn" style="width: 100px;color: green"><b>Upload</b></button>
+        <div id="out_progress">
+            <div id="inner_progress"></div>
+        </div>
+        <div id="code_info"></div>
+    </div>
+
+    <div id="code_edit">
+        <h5>代码预览:</h5>
+        <h6 style="position: absolute;top: 70px;left: 250px" id="code_title">Hello.js</h6>
+        <div id="code_detail">
+            var string = "Hell World!";</br>
+            console.log(sreing);
+        </div>
+    </div>
+</body>
+</html>
