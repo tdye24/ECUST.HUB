@@ -35,8 +35,6 @@ $(function() {
 							    <td><b><a href="./otherusercenter.html?username=${result[i].id}">${result[i].id}</a></b></td>
 							    <td><b>${result[i].permission}</b></td>
 							    <td><b>0</b></td></tr>`;
-							  
-							//innerHtml += `<b>姓名：</b><a href="./otherusercenter.html?username=${result[i].id}">${result[i].id}</a>&nbsp;&nbsp;<b>权限：</b>${result[i].permission}</br>`;
 						}
 						innerHtml += `<tr>
 								<td><b><input style="width:124px;" id="new_member_name"></input></b></td>
@@ -49,7 +47,6 @@ $(function() {
 							    </td>
 							    <td><b><button style="color:green" id="invite">邀请成员</button></b></td>
 							  </tr></table>`;
-						// console.log(innerHtml);
 						$('#members_info').html(innerHtml);
 						$('#invite').click(function() {
 							let new_member_name = $('#new_member_name').val();
@@ -117,11 +114,10 @@ $(function() {
 							  </tr>`;
 						for(var i=0; i<result.length; i++) {
 							innerHtml += `<tr>
-							    <td><b><a href="./warehouse.html?warehouse=${result[i].warehouse}&&teamid=${teamid}">${result[i].warehouse}</a></b></td>
+							    <td><b><a href="./warehouse.html?warehouse=${result[i].warehouse}&&teamid=${teamid}#default">${result[i].warehouse}</a></b></td>
 							    <td><b>1</b></td>
 							  </tr>`;
 							  
-							//innerHtml += `<b>姓名：</b><a href="./otherusercenter.html?username=${result[i].id}">${result[i].id}</a>&nbsp;&nbsp;<b>权限：</b>${result[i].permission}</br>`;
 						}
 						innerHtml += 
 							`<tr>

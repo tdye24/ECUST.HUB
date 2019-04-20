@@ -28,16 +28,12 @@ $(function() {
 				location.href = '../index.html';
 			} else {
 				let username = loginresult.username;
-				// let warehouse = (window.location.search).split('=')[1];
-				// let teamid = (window.location.search).split('=')[2];
-				// console.log(window.location.search);
+	
 				let temp_params_list_1 = (window.location.search).split('&&')
-				// console.log(temp_params_list_1);
+		
 				let warehouse = (temp_params_list_1[0]).split("=")[1]
 				let teamid = decodeURI((temp_params_list_1[1])).split("=")[1]
-				// console.log("warehouse", warehouse);
-				// console.log("teamid", teamid);
-
+				
 				let title_str = "仓库名称：" + decodeURI(warehouse);
 				$('#warehouse_title').html(title_str);
 				$.ajax({
@@ -46,7 +42,7 @@ $(function() {
 					dataType: 'json',
 					data: `warehouse=${decodeURI(warehouse)}`,
 					success: function(result) {
-						console.log("warehouse_code result1", result);
+				
 						let innerHtml = `<table border="4">
 							  <tr>
 							    <th style="width:70px">姓名</th>
@@ -64,13 +60,13 @@ $(function() {
 							    <td><b><button style="color:green" class="download" id="${result[i].unique_filename}">Download</button></b></td>
 							  </tr>`;
 							  
-							//innerHtml += `<b>姓名：</b><a href="./otherusercenter.html?username=${result[i].id}">${result[i].id}</a>&nbsp;&nbsp;<b>权限：</b>${result[i].permission}</br>`;
+							
 						}
 						innerHtml += `</table>`;
-						// console.log(innerHtml);
+
 						$('#code_info').html(innerHtml);
 						$('button.code_').click(function(e) {
-
+							
 							$('#code_title').html(e.currentTarget.innerText);
 							let get_data = {
 								teamid: teamid,
@@ -79,21 +75,21 @@ $(function() {
 								
 
 							}
-							console.log("get_data", get_data);
 							$.ajax({
 								url: 'http://localhost:3000/query/codedetail',
 								data: 'get',
 								dataType: 'json',
 								data: get_data,
 								success: function(res) {
-									console.log(res);
-									$('#code_detail').html(res.data);
+
+									editor.setValue(res.data)
+			
 								}
 							})
 						})
 						$('.download').click(function(event) {
 							let temp_params_list_1 = (window.location.search).split('&&')
-							// console.log(temp_params_list_1);
+
 							let warehouse = (temp_params_list_1[0]).split("=")[1]
 							let teamid = decodeURI((temp_params_list_1[1])).split("=")[1]
 							// let warehouse = decodeURI((window.location.search).split('=')[1]);
@@ -139,7 +135,7 @@ $(function() {
 					                    	dataType: 'json',
 					                    	data: `warehouse=${warehouse}`,
 					                    	success: function(result) {
-					                    		console.log("warehouse_code result2", result);
+					                    		console.log("上传成功！");
 					                    		let innerHtml = `<table border="4">
 					                    			  <tr>
 					                    			    <th style="width:70px">姓名</th>
@@ -157,10 +153,10 @@ $(function() {
 					                    			    <td><b><button style="color:green" class="download" id="${result[i].unique_filename}">Download</button></b></td>
 					                    			  </tr>`;
 					                    			  
-					                    			//innerHtml += `<b>姓名：</b><a href="./otherusercenter.html?username=${result[i].id}">${result[i].id}</a>&nbsp;&nbsp;<b>权限：</b>${result[i].permission}</br>`;
+					                    			
 					                    		}
 					                    		innerHtml += `</table>`;
-					                    		// console.log(innerHtml);
+				
 					                    		$('#code_info').html(innerHtml);
 					                    		window.location.reload()
 					                    	}
@@ -169,7 +165,7 @@ $(function() {
 					            }
 					        }
 					        let temp_params_list_1 = (window.location.search).split('&&')
-					        // console.log(temp_params_list_1);
+				
 					        let warehouse = (temp_params_list_1[0]).split("=")[1]
 					        let teamid = decodeURI((temp_params_list_1[1])).split("=")[1]
 

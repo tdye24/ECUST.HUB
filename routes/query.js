@@ -144,33 +144,26 @@ router.get('/recommend_user', function(req, res) {
                             length(p) as length
                     order by length`;
     db.cypherQuery(cypher, function(err, result) {
-        if(err) {
-            return console.error(err);
-            
-        }
+        if(err) {   return console.error(err)   }
         let resdata = screen(result.data);
-        
         if(result.data.length == 0) {
             var cypher = `match (user:User)
+                            where user.username <> '${username}'
                             return user.username as username,
                                     user.sex as sex,
                                     user.motto as motto
-                                    limit 4`;
+                                    limit 4`
             db.cypherQuery(cypher, function(err, result_) {
-                
-
                 res.end(JSON.stringify(result_.data))
             })
-            return ;
-
+            return
         }
-        
         res.end(JSON.stringify(resdata));
     })
 });
 
 router.get('/recommend_source', function(req, res) {
-    let username = req.query.username;
+    let username = req.query.username
     var cypher = `match p=(host:User)-[:Follow|:Upload|:Download*1..6]-(ps:Source)
                     where host.username = '${username}'
                     and not (host)-[:Upload|:Download]->(ps)
@@ -179,16 +172,10 @@ router.get('/recommend_source', function(req, res) {
                             id(ps) as id,
                             labels(ps)[1] as type,
                             length(p) as length
-                    order by length`;
+                    order by length`
     db.cypherQuery(cypher, function(err, result) {
-        let resdata = screen(result.data);
-        console.log(result);
-        console.log(resdata);
-        
-        if(err) {
-            return console.error(err);
-            
-        }
+        let resdata = screen(result.data);     
+        if(err) {return console.error(err)}
         if(result.data.length == 0) {
             var cypher = `match (source:Source)
                             return
@@ -198,13 +185,9 @@ router.get('/recommend_source', function(req, res) {
                             labels(source)[1] as type
                                     limit 4`;
             db.cypherQuery(cypher, function(err, result2) {
-                console.log(result2);
-                
-
                 res.end(JSON.stringify(result2.data))
             })
-            return ;
-
+            return 
         }
         res.end(JSON.stringify(resdata));
     })
@@ -371,17 +354,6 @@ router.get('/warehouse_code', function(req, res) {
             }
             connection.release();
             console.log(result);
-            // console.log(result[0].path);
-            // let code_path = "D:/MyProjects/Eloud/public/" + result[0].path;
-            // console.log(code_path);
-            // fs.readdir(code_path, function(err, data) {
-            //     if(err) {
-            //         console.log(err);
-            //         
-            //     }
-            //     console.log(data);
-            //     res.end(JSON.stringify(data));
-            // });
             res.end(JSON.stringify(result));
         });
     })
@@ -400,7 +372,7 @@ router.get('/codedetail', function(req, res) {
             
         }
         console.log(warehouse);
-        let code_path = `D:/MyProjects/Eloud/public/data/warehouse/${teamid}/${warehouse}/${unique_filename}`;
+        let code_path = `D:/MyProjects/ECUSTHUB/public/data/warehouse/${teamid}/${warehouse}/${unique_filename}`;
         fs.readFile(code_path, 'utf-8', function(err, data) {
             if(err) {
                 return console.error(err);

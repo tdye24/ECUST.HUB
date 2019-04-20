@@ -54,9 +54,6 @@ router.get('/user', function(req, res) {
                     return console.error(err);
                     
                 }
-                // console.log('result1', result1.data);//census  [ [ '34', 4 ], [ '21', 1 ] ]
-                // console.log('result2', result2);//sex  [ [ '女', 1 ], [ '男', 4 ] ]
-                // console.log('result3', result3);//birth  [ '1998-12-05','1998-12-05','1998-12-05','1998-12-05','1998-05-02' ]
                 var censusobj = {
                 	'11': '北京',
                 	'12': '天津',

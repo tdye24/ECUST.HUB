@@ -69,8 +69,6 @@ router.post('/', function(req, res, next) {
             })
         }
     })
-    // console.log('sql', sql);
-    // console.log('cypher', cypher);
     db.cypherQuery(cypher, function (err, result) {
         if (err) {
             res.end(JSON.stringify({status: 'fail'}));

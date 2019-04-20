@@ -28,35 +28,34 @@ router.post('/', function (req,res) {
         var type = fields.type;
         var point = fields.point;
         var uploadTime = fields.uploadTime;
-        var filename = files.file.name;//文件的真实名字
+        var filename = files.file.name;//文件title
         var size = files.file.size/(1024*1024);
-        var oldpath = 'D:\\myProjects\\Eloud\\' + files.file.path;
-        // console.log(files.file.path);
+        var oldpath = 'D:\\myProjects\\ECUSTHUB\\' + files.file.path;
         var newpath = '';
         switch(type) {
             case 'courseware': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\courseware\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\courseware\\' + files.file.path.split('\\')[3];
                 break;
             case 'book': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\book\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\book\\' + files.file.path.split('\\')[3];
                 break;
             case 'software': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\software\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\software\\' + files.file.path.split('\\')[3];
                 break;
             case 'game': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\game\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\game\\' + files.file.path.split('\\')[3];
                 break;
             case 'music': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\music\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\music\\' + files.file.path.split('\\')[3];
                 break;
             case 'video': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\video\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\video\\' + files.file.path.split('\\')[3];
                 break;
             case 'picture': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\picture\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\picture\\' + files.file.path.split('\\')[3];
                 break;
             case 'other': 
-                newpath = 'D:\\myProjects\\Eloud\\public\\data\\other\\' + files.file.path.split('\\')[3];
+                newpath = 'D:\\myProjects\\ECUSTHUB\\public\\data\\other\\' + files.file.path.split('\\')[3];
                 break;
         }
         fs.rename(oldpath, newpath, function(err) {
@@ -75,10 +74,8 @@ router.post('/', function (req,res) {
                     } else {
                         connection.query(sql, function(err, result) {
                             if(err) {
-                                return console.error(err);
-                                
+                                return console.error(err);                                
                             } else {
-                                // console.log(result);
                                 connection.release();
                             }
                         })

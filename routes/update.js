@@ -472,42 +472,35 @@ router.post('/team', function(req, res) {
     let new_member_name = req.body.new_member_name;
     let teamid = req.body.teamid;
     let new_member_permission = req.body.new_member_permission;
-    console.log(new_member_name, teamid, new_member_permission);
     pool.getConnection(function(err, connection) {
-        if (err) {
-            return console.error(err);
-            
+        if (err) {return console.error(err)
         } else {
             let sql1 = `select * from invitation where teamid='${teamid}' and id='${new_member_name}' `;
             connection.query(sql1, function(err, result1) {
                 if(err) {
-                    connection.release();
-                    return console.error(err);
-                    
+                    connection.release()
+                    return console.error(err)
                 } else {
-                    console.log("result1", result1);
                     if(result1.length == 0) {
                         let sql2 = `insert into invitation (teamid, id, permission) values ('${teamid}', '${new_member_name}', '${new_member_permission}')`;
                         connection.query(sql2, function(err, result) {
                             if (err) {
-                                connection.release();
+                                connection.release() 
                                 return console.error(err);
-                                
                             } else {
                                 connection.release();
-                                res.end(JSON.stringify({status:"success"}));
+                                res.end(JSON.stringify({status:"success"}))
                             }
                         })
                     } else {
-                        connection.release();
+                        connection.release()
                         res.end(JSON.stringify({status: 'fail', message: '您已经邀请过该用户！'}));
-                    }
-                    
+                    } 
                 }
-            });    
+            })    
         }
     })
-});
+})
 
 
 router.post('/warehouse', function(req, res) {
@@ -517,13 +510,12 @@ router.post('/warehouse', function(req, res) {
         let sql = `select * from team_warehouse where teamid = '${teamid}' and warehouse = '${new_warehouse_name}'`;
         connection.query(sql, function(err, result) {
             if(err) {
-                return console.error(err);
-                
+                return console.error(err); 
             }
             if(result.length != 0) {
                 connection.release();
                 res.end(JSON.stringify({status:'fail', message: '请勿重复创建同一仓库！'}));
-                return ;
+                return 
             } else {
                 let sql1 = `insert into team_warehouse (teamid, warehouse) values('${teamid}', '${new_warehouse_name}')`;
                 connection.query(sql1, function(err, result1) {
@@ -539,7 +531,7 @@ router.post('/warehouse', function(req, res) {
                                 connection.release();
                                 
                             }
-                            fs.mkdir(`D://MyProjects/Eloud/public/data/warehouse/${teamid}/` + new_warehouse_name, function(err) {
+                            fs.mkdir(`D://MyProjects/ECUSTHUB/public/data/warehouse/${teamid}/` + new_warehouse_name, function(err) {
                                 if(err) {
                                     return console.error(err);
                                 }
@@ -591,31 +583,19 @@ router.get('/new_team', function(req, res) {
     pool.getConnection(function(err, connection) {
         let sql1 = `select teamid from user_team where teamid = '${new_team_name}'`;
         connection.query(sql1, function(err, result1) {
-            if(err) {
-                return console.error(err);
-            } 
-            console.log("result1", result1);
-            console.log(result1.length);
+            if(err) {return console.error(err)} 
             if(result1.length != 0) {
-                console.log("hhhh");
                 connection.release();
                 res.end(JSON.stringify({status: 'fail', message: '该团队名已经存在！'}))
             } else {
                 let sql2 = `insert into user_team values ('${id}', '${new_team_name}', '甲')`;
                 connection.query(sql2, function(err, result2) {
-                    if(err) {
-                        return console.error(err);
-                        
-                    }
+                    if(err) {return console.error(err)}
                     connection.release();
-                    fs.mkdir(`D://MyProjects/Eloud/public/data/warehouse/${new_team_name}`, function(err) {
-                        if(err) {
-                            return console.error(err);
-                        }
-
+                    fs.mkdir(`D://MyProjects/ECUSTHUB/public/data/warehouse/${new_team_name}`, function(err) {
+                        if(err) {return console.error(err)}
                         res.end(JSON.stringify({status: 'success', message: '创建成功，可在"我的团队中查看"!'}));
-                    }) 
-                    
+                    })  
                 })
             }   
         })  
@@ -627,15 +607,11 @@ router.post('/decline', function(req, res) {
     let teamid = req.body.teamid;
     let id = req.body.id;
     let permission = req.body.permission;
-    // console.log(teamid);
-    // console.log(id);
-    // console.log(permission);
     pool.getConnection(function(err, connection) {
         let sql = `delete from invitation where teamid = '${teamid}' and id = '${id}'`;
         connection.query(sql, function(err, result_) {
             if(err) {
                 return console.error(err);
-                
             }
             connection.release()
             res.end(JSON.stringify({status: 'success'}))

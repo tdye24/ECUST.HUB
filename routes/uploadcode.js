@@ -29,8 +29,8 @@ router.post('/', function (req,res) {
         // var uploadTime = date.toLocaleString();
         var filename = files.file.name;//文件的真实名字
         var size = files.file.size/(1024*1024);
-        var oldpath = 'D:\\myProjects\\Eloud\\' + files.file.path;
-        var newpath = `D:\\myProjects\\Eloud\\public\\data\\warehouse\\${teamid}\\${decodeURI(warehouse)}\\` + files.file.path.split('\\')[3];
+        var oldpath = 'D:\\myProjects\\ECUSTHUB\\' + files.file.path;
+        var newpath = `D:\\myProjects\\ECUSTHUB\\public\\data\\warehouse\\${teamid}\\${decodeURI(warehouse)}\\` + files.file.path.split('\\')[3];
         console.log("oldpath", oldpath);
         console.log("newpath", newpath);
         fs.rename(oldpath, newpath, function(err) {
